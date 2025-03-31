@@ -1,0 +1,21 @@
+apiVersion: v2
+name: atlan-platform
+description: Atlan Platform Helm Chart
+type: application
+version: 1.0.0
+dependencies:
+  - name: api
+    version: 1.0.0
+    repository: file://charts/api
+  - name: frontend
+    version: 1.0.0
+    repository: file://charts/frontend
+  - name: database
+    version: 1.0.0
+    repository: file://charts/database
+  - name: jobs
+    version: 1.0.0
+    repository: file://charts/jobs
+  - name: shared
+    version: 1.0.0
+    repository: file://charts/shared

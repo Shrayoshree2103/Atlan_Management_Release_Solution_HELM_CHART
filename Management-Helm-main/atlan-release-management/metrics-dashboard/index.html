@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Release Management Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6">Release Management Dashboard</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <!-- Summary Cards -->
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-2">Deployment Time</h2>
+        <div class="text-3xl font-bold">82% <span class="text-green-500">↓</span></div>
+        <p class="text-gray-600">Reduction in average deployment time</p>
+      </div>
+      
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-2">Test Reliability</h2>
+        <div class="text-3xl font-bold">73% <span class="text-green-500">↓</span></div>
+        <p class="text-gray-600">Reduction in flaky tests</p>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Charts -->
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Deployment Time Comparison</h2>
+        <canvas id="deploymentTimeChart"></canvas>
+      </div>
+      
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Test Flakiness</h2>
+        <canvas id="testFlakinessChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data
+    const deploymentTimeData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [
+        {
+          label: 'Before Optimization',
+          data: [420, 450, 400, 430, 410],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'After Optimization',
+          data: [95, 85, 75, 65, 60],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+
+    const testFlakinessData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [
+        {
+          label: 'Flaky Tests %',
+          data: [12, 10.7, 6.9, 4.9, 3],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+
+    // Initialize charts
+    const deploymentTimeChart = new Chart(
+      document.getElementById('deploymentTimeChart'),
+      {
+        type: 'bar',
+        data: deploymentTimeData,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Seconds'
+              }
+            }
+          }
+        }
+      }
+    );
+
+    const testFlakinessChart = new Chart(
+      document.getElementById('testFlakinessChart'),
+      {
+        type: 'line',
+        data: testFlakinessData,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Percentage (%)'
+              }
+            }
+          }
+        }
+      }
+    );
+  </script>
+</body>
+</html>
