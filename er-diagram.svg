@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Atlan Release Management - Data Model</text>
+  
+  <!-- HelmChart Entity -->
+  <rect x="100" y="100" width="180" height="180" fill="#e6f7ff" stroke="#1890ff" stroke-width="2" rx="5" ry="5"/>
+  <text x="190" y="125" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">HelmChart</text>
+  <line x1="100" y1="135" x2="280" y2="135" stroke="#1890ff" stroke-width="2"/>
+  
+  <text x="110" y="155" font-family="Arial" font-size="12">PK: chart_id</text>
+  <text x="110" y="175" font-family="Arial" font-size="12">name: VARCHAR</text>
+  <text x="110" y="195" font-family="Arial" font-size="12">version: VARCHAR</text>
+  <text x="110" y="215" font-family="Arial" font-size="12">path: VARCHAR</text>
+  <text x="110" y="235" font-family="Arial" font-size="12">type: ENUM</text>
+  <text x="110" y="255" font-family="Arial" font-size="12">parent_id: INT</text>
+  <text x="110" y="275" font-family="Arial" font-size="12">created_at: TIMESTAMP</text>
+  
+  <!-- ChartDependency Entity -->
+  <rect x="100" y="350" width="180" height="140" fill="#e6f7ff" stroke="#1890ff" stroke-width="2" rx="5" ry="5"/>
+  <text x="190" y="375" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">ChartDependency</text>
+  <line x1="100" y1="385" x2="280" y2="385" stroke="#1890ff" stroke-width="2"/>
+  
+  <text x="110" y="405" font-family="Arial" font-size="12">PK: dependency_id</text>
+  <text x="110" y="425" font-family="Arial" font-size="12">chart_id: INT</text>
+  <text x="110" y="445" font-family="Arial" font-size="12">dependency_chart_id: INT</text>
+  <text x="110" y="465" font-family="Arial" font-size="12">version_constraint: VARCHAR</text>
+  <text x="110" y="485" font-family="Arial" font-size="12">created_at: TIMESTAMP</text>
+  
+  <!-- DeploymentRecord Entity -->
+  <rect x="350" y="100" width="200" height="180" fill="#f6ffed" stroke="#52c41a" stroke-width="2" rx="5" ry="5"/>
+  <text x="450" y="125" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">DeploymentRecord</text>
+  <line x1="350" y1="135" x2="550" y2="135" stroke="#52c41a" stroke-width="2"/>
+  
+  <text x="360" y="155" font-family="Arial" font-size="12">PK: deployment_id</text>
+  <text x="360" y="175" font-family="Arial" font-size="12">chart_id: INT</text>
+  <text x="360" y="195" font-family="Arial" font-size="12">environment: VARCHAR</text>
+  <text x="360" y="215" font-family="Arial" font-size="12">commit_hash: VARCHAR</text>
+  <text x="360" y="235" font-family="Arial" font-size="12">start_time: TIMESTAMP</text>
+  <text x="360" y="255" font-family="Arial" font-size="12">end_time: TIMESTAMP</text>
+  <text x="360" y="275" font-family="Arial" font-size="12">status: ENUM</text>
+  
+  <!-- Test Entity -->
+  <rect x="350" y="350" width="200" height="180" fill="#f6ffed" stroke="#52c41a" stroke-width="2" rx="5" ry="5"/>
+  <text x="450" y="375" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Test</text>
+  <line x1="350" y1="385" x2="550" y2="385" stroke="#52c41a" stroke-width="2"/>
+  
+  <text x="360" y="405" font-family="Arial" font-size="12">PK: test_id</text>
+  <text x="360" y="425" font-family="Arial" font-size="12">name: VARCHAR</text>
+  <text x="360" y="445" font-family="Arial" font-size="12">type: ENUM</text>
+  <text x="360" y="465" font-family="Arial" font-size="12">file_path: VARCHAR</text>
+  <text x="360" y="485" font-family="Arial" font-size="12">component_id: INT</text>
+  <text x="360" y="505" font-family="Arial" font-size="12">created_at: TIMESTAMP</text>
+  <text x="360" y="525" font-family="Arial" font-size="12">is_quarantined: BOOLEAN</text>
+  
+  <!-- TestRun Entity -->
+  <rect x="620" y="350" width="200" height="180" fill="#fff2e8" stroke="#fa8c16" stroke-width="2" rx="5" ry="5"/>
+  <text x="720" y="375" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">TestRun</text>
+  <line x1="620" y1="385" x2="820" y2="385" stroke="#fa8c16" stroke-width="2"/>
+  
+  <text x="630" y="405" font-family="Arial" font-size="12">PK: test_run_id</text>
+  <text x="630" y="425" font-family="Arial" font-size="12">test_id: INT</text>
+  <text x="630" y="445" font-family="Arial" font-size="12">deployment_id: INT</text>
+  <text x="630" y="465" font-family="Arial" font-size="12">start_time: TIMESTAMP</text>
+  <text x="630" y="485" font-family="Arial" font-size="12">end_time: TIMESTAMP</text>
+  <text x="630" y="505" font-family="Arial" font-size="12">status: ENUM</text>
+  <text x="630" y="525" font-family="Arial" font-size="12">error_message: TEXT</text>
+  
+  <!-- MetricsRecord Entity -->
+  <rect x="620" y="100" width="200" height="180" fill="#fff2e8" stroke="#fa8c16" stroke-width="2" rx="5" ry="5"/>
+  <text x="720" y="125" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">MetricsRecord</text>
+  <line x1="620" y1="135" x2="820" y2="135" stroke="#fa8c16" stroke-width="2"/>
+  
+  <text x="630" y="155" font-family="Arial" font-size="12">PK: metric_id</text>
+  <text x="630" y="175" font-family="Arial" font-size="12">deployment_id: INT</text>
+  <text x="630" y="195" font-family="Arial" font-size="12">month: DATE</text>
+  <text x="630" y="215" font-family="Arial" font-size="12">deployment_time: INT</text>
+  <text x="630" y="235" font-family="Arial" font-size="12">test_count: INT</text>
+  <text x="630" y="255" font-family="Arial" font-size="12">flaky_test_count: INT</text>
+  <text x="630" y="275" font-family="Arial" font-size="12">success_rate: DECIMAL</text>
+  
+  <!-- Relations -->
+  <!-- Self-referencing relation for parent charts -->
+  <path d="M100 230 C50 230, 50 180, 90 180" fill="none" stroke="#1890ff" stroke-width="2"/>
+  <polygon points="100,180 90,175 90,185" fill="#1890ff"/>
+  <text x="60" y="160" font-family="Arial" font-size="12" fill="#1890ff">parent-child</text>
+  
+  <!-- HelmChart to ChartDependency -->
+  <line x1="190" y1="280" x2="190" y2="350" stroke="#1890ff" stroke-width="2"/>
+  <polygon points="190,280 185,290 195,290" fill="#1890ff"/>
+  <polygon points="190,350 185,340 195,340" fill="#1890ff"/>
+  <text x="200" y="320" font-family="Arial" font-size="12" fill="#1890ff">1:N</text>
+  
+  <!-- HelmChart to DeploymentRecord -->
+  <line x1="280" y1="160" x2="350" y2="160" stroke="#1890ff" stroke-width="2"/>
+  <polygon points="280,160 290,155 290,165" fill="#1890ff"/>
+  <polygon points="350,160 340,155 340,165" fill="#1890ff"/>
+  <text x="310" y="150" font-family="Arial" font-size="12" fill="#1890ff">1:N</text>
+  
+  <!-- DeploymentRecord to MetricsRecord -->
+  <line x1="550" y1="180" x2="620" y2="180" stroke="#52c41a" stroke-width="2"/>
+  <polygon points="550,180 560,175 560,185" fill="#52c41a"/>
+  <polygon points="620,180 610,175 610,185" fill="#52c41a"/>
+  <text x="580" y="170" font-family="Arial" font-size="12" fill="#52c41a">1:1</text>
+  
+  <!-- DeploymentRecord to TestRun -->
+  <path d="M450 280 C450 320, 650 320, 650 350" fill="none" stroke="#52c41a" stroke-width="2"/>
+  <polygon points="450,280 445,290 455,290" fill="#52c41a"/>
+  <polygon points="650,350 645,340 655,340" fill="#52c41a"/>
+  <text x="540" y="315" font-family="Arial" font-size="12" fill="#52c41a">1:N</text>
+  
+  <!-- Test to TestRun -->
+  <line x1="550" y1="430" x2="620" y2="430" stroke="#52c41a" stroke-width="2"/>
+  <polygon points="550,430 560,425 560,435" fill="#52c41a"/>
+  <polygon points="620,430 610,425 610,435" fill="#52c41a"/>
+  <text x="580" y="420" font-family="Arial" font-size="12" fill="#52c41a">1:N</text>
+  
+  <!-- Component to Test -->
+  <path d="M280 250 C320 250, 320 455, 350 455" fill="none" stroke="#1890ff" stroke-width="2"/>
+  <polygon points="280,250 290,245 290,255" fill="#1890ff"/>
+  <polygon points="350,455 340,450 340,460" fill="#1890ff"/>
+  <text x="310" y="330" font-family="Arial" font-size="12" fill="#1890ff">1:N</text>
+</svg>
